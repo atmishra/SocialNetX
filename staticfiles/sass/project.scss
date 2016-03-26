@@ -1,0 +1,94 @@
+// project specific CSS goes here
+
+// Alert colors
+
+$white: #fff;
+$mint-green: #d6e9c6;
+$black: #000;
+$pink: #f2dede;
+$dark-pink: #eed3d7;
+$red: #b94a48;
+
+$font-size-base:20px !default;
+
+// bootstrap alert CSS, translated to the django-standard levels of
+// debug, info, success, warning, error
+
+.alert-debug {
+  background-color: $white;
+  border-color: $mint-green;
+  color: $black;
+}
+
+.alert-error {
+  background-color: $pink;
+  border-color: $dark-pink;
+  color: $red;
+}
+
+// This is a fix for the bootstrap4 alpha release
+
+@media (max-width: 47.9em) {
+  .navbar-nav .nav-item {
+    display: inline-block;
+    float: none;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 0;
+  }
+
+  .nav.navbar-nav.pull-xs-right {
+    float: none !important;
+  }
+}
+
+// Display django-debug-toolbar.
+// See https://github.com/django-debug-toolbar/django-debug-toolbar/issues/742
+// and https://github.com/pydanny/cookiecutter-django/issues/317
+
+[hidden][style="display: block;"] {
+  display: block !important;
+}
+
+
+// Navbar Custom
+
+@media (min-width: 768px)
+{
+  .navbar {
+      border-radius: 0;
+  }
+}
+
+.navbar
+{
+  margin-bottom: 0;
+}
+
+// Homepage
+
+#message
+{
+  text-align: center;
+}
+
+#homepage-wrapper
+{
+  background: linear-gradient(135deg,#2979FF,#F48FB1);
+  color: #fff;
+  padding-top: 15%;
+  padding-bottom: 6%;
+  text-align: center;
+  h1,h3{margin-top: 10px; font-weight: 900}
+  .homepage-action-btn
+  {
+    margin-top: 5%;
+  }
+  #social-icons
+  {
+    margin-top: 5%;
+    i{margin-left:50px;margin-right:50px;}
+  }
+}

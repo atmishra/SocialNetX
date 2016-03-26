@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="homepage-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>SocialNetX</h1>
+                <h3>Deep insights about your life in online space.</h3>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'dashboard:dashboard_index'  %}"><button type="button" class="homepage-action-btn btn btn-success">Dashboard</button></a>
+                {% else %}
+                    <a href="{% url 'account_signup' %}"><button type="button" class="homepage-action-btn btn btn-success">Sign Up</button></a>
+                {% endif %}
+                <p id="social-icons">
+                    <i class="fa fa-twitter fa-3x"></i>
+                    <i class="fa fa-google-plus fa-3x"></i>
+                    <i class="fa fa-github fa-3x"></i>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+  
+{% endblock content %}

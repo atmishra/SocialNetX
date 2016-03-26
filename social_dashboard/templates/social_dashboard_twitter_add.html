@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Twitter</h1>
+            <p>You have not connected your Twitter account.</p>
+            <a href="{% url 'socialaccount_connections' %}"><button type="button" class="homepage-action-btn btn btn-success">Connect <i class="fa fa-twitter"></i></button></a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+

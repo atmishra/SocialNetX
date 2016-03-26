@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard Twitter{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Twitter</h1>
+            <a href="{% url 'twitter:twitter_fetch_latest' %}"><button type="button" class="homepage-action-btn btn btn-success"><i class="fa fa-twitter"></i> fetch latest tweets</button></a>
+            {% for tweet in tweets %}
+                <p>{{ tweet.text }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
