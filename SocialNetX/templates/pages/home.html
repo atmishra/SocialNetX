@@ -11,6 +11,7 @@
                 {% if request.user.is_authenticated %}
                     <a href="{% url 'dashboard:dashboard_index'  %}"><button type="button" class="homepage-action-btn btn btn-success">Dashboard</button></a>
                 {% else %}
+                    <a href="{% url 'account_login' %}"><button type="button" class="homepage-action-btn btn btn-success"><i class="fa fa-sign-in"></i> Signin</button></a>
                     <a href="{% url 'account_signup' %}"><button type="button" class="homepage-action-btn btn btn-success">Sign Up</button></a>
                 {% endif %}
                 <p id="social-icons">

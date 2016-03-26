@@ -41,7 +41,9 @@
     margin-top: 10px;
     font-weight: 900; }
   #homepage-wrapper .homepage-action-btn {
-    margin-top: 5%; }
+    margin-top: 5%;
+    margin-left: 20px;
+    margin-right: 20px; }
   #homepage-wrapper #social-icons {
     margin-top: 5%; }
     #homepage-wrapper #social-icons i {
