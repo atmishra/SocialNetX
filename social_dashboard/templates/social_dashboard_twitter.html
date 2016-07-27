@@ -9,9 +9,80 @@
         <div class="col-md-12">
             <h1>Twitter</h1>
             <a href="{% url 'twitter:twitter_fetch_latest' %}"><button type="button" class="homepage-action-btn btn btn-success"><i class="fa fa-twitter"></i> fetch latest tweets</button></a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="chart1" ></div>
+                    </div>
+                   <div class="col-md-6">
+                        <div id="chart2" ></div>
+                    </div>
+                </div>
+            <script>
+                var chart1 = c3.generate({
+                bindto: '#chart1',
+                data: {
+                    columns: [
+                        ['Positive', {{positive_tweets}}],
+                        ['Negative', {{negative_tweets}}],
+                        ['Neutral',{{neutral_tweets}}],
+                    ],
+                    type : 'bar'
+                },
+                 axis: {
+                    x: {
+                        label: 'Type'
+                    },
+                    y: {
+                        label: 'Number of tweets'
+                    }
+                },
+                donut: {
+                    title: "Sentiment Analysis",
+
+                },
+                colors: { Positive:'green', Negative:'red' },
+                
+            });
+                var chart2 = c3.generate({
+                bindto: '#chart2',
+                data: {
+                    columns: [
+                        ['Positive', {{positive_tweets}}],
+                        ['Negative', {{negative_tweets}}],
+                        ['Neutral',{{neutral_tweets}}],
+                    ],
+                    type : 'donut'
+                },
+                donut: {
+                    title: "Sentiment Analysis",
+
+                },
+                colors: { Positive:'green', Negative:'red' },
+                
+            });
+
+        </script>
+        <ul class="list-group">
             {% for tweet in tweets %}
-                <p>{{ tweet.text }}</p>
+
+               
+                 {% if tweet.sentiment == 'positive' %}
+                 <li class="list-group-item" style="font-family: 'Open Sans', sans-serif; font-size:15px; color:green;">{{ tweet.text }}&nbsp&nbsp 
+                    <i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:green;"></i>
+                </li>
+                {% elif tweet.sentiment == 'negative' %}
+                    <li class="list-group-item" style="font-family: 'Open Sans', sans-serif; font-size:15px; color:red;">{{ tweet.text }}&nbsp&nbsp 
+                    <i class="fa fa-thumbs-o-down" aria-hidden="true" style="color:red;"></i>
+                    </li>
+                {% elif  tweet.sentiment == 'neutral' %}
+                    <li class="list-group-item" style="font-family: 'Open Sans', sans-serif; font-size:15px; color:orange;">{{ tweet.text }}&nbsp&nbsp 
+                    <i class="fa fa-hand-stop-o" aria-hidden="true" style="color:yellow;"></i>
+                    </li>
+                {% else %}
+                    <li class="list-group-item" style="font-family: 'Open Sans', sans-serif; font-size:15px; color:orange;">{{ tweet.text }}</li>
+                {% endif %}
             {% endfor %}
+        </ul>
         </div>
     </div>
 </div>

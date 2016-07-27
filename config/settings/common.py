@@ -18,7 +18,7 @@ APPS_DIR = ROOT_DIR.path('SocialNetX')
 env = environ.Env()
 
 # APP CONFIGURATION
-# ------------------------------------------------------------------------------
+# ---------------------------------------untiy---------------------------------------
 DJANGO_APPS = (
     # Default Django apps:
     'django.contrib.auth',
@@ -245,5 +245,5 @@ ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login'
 # Your common stuff: Below this line define 3rd party library settings
 
 # Twitter app settings
-TW_CONSUMER_KEY = 'OpqzU07D0Cdxd4jQXs8em2fEM'
-TW_CONSUMER_SECRET = 'fUHav46pJsQWtOzK43nsoD3ahvrG5JGN4YkCfZyYRtOdDNTave'
+TW_CONSUMER_KEY = 'motMUlzcQGVbub8BIHPqflZNO'
+TW_CONSUMER_SECRET = 'BirKqr5rL00hlLef5RJMzleBPujNeBT5LHg081aBj9gOlSFpof'

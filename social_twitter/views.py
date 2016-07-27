@@ -6,6 +6,7 @@ from django.conf import settings
 
 from allauth.socialaccount.models import SocialAccount, SocialToken
 import tweepy
+import requests , json
 
 from .models import Tweet
 
@@ -13,6 +14,35 @@ from .models import Tweet
 
 consumer_key = getattr(settings, "TW_CONSUMER_KEY")
 consumer_secret = getattr(settings, "TW_CONSUMER_SECRET")
+
+def get_status_of_text(request,text, tweet):
+    headers = {'content-type': 'application/json'}
+    url = 'http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment'
+
+    data = {"eventType": "AAS_PORTAL_START", "data": {"uid": "hfe3hf45huf33545", "aid": "1", "vid": "1"}}
+    params = {'apikey': '67a570b1d8c91f9be817c8d4e82a521b9a6aeb71', 'text': text, 'outputMode': 'json'}
+    
+    try:
+        res = requests.get(url, params=params)
+
+        json_data = json.loads(res.text)
+        
+        sentiment = json_data['docSentiment']['type']
+
+        score = json_data['docSentiment']['score']
+
+        tw = Tweet(user=request.user, tweet_id=tweet.id,
+                   text=text, created_at=tweet.created_at, sentiment=sentiment,
+                   score=score
+                   )
+        tw.save()
+
+    except:
+        tw = Tweet(user=request.user, tweet_id=tweet.id,
+                   text=text, created_at=tweet.created_at
+                   )
+        tw.save()
+
 
 
 @login_required
@@ -48,8 +78,10 @@ def social_twitter_fetch(request):
             tw_text = tweet.retweeted_status.text
         else:
             tw_text = tweet.text
-        tw = Tweet(user=request.user, tweet_id=tweet.id,
-                   text=tw_text, created_at=tweet.created_at)
-        tw.save()
+
+        get_status_of_text(request, tw_text, tweet)
+
 
     return redirect('dashboard:dashboard_twitter')
+
+    
