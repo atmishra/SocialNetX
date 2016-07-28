@@ -34,8 +34,8 @@ Create Database and run migrations
 $ createdb socialnetx
 $ ./manage.py makemigrations
 $ ./manage.py migrate
+
 ```
-<<<<<<< HEAD
 Now you are resdy to run development server:
 ```
 $ ./manage.py runserver
