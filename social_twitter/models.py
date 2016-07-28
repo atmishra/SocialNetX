@@ -25,5 +25,8 @@ class Tweet(models.Model):
                                  choices=SENTIMENT_CHOICES, blank=True)
     score = models.DecimalField(max_digits=4,decimal_places=2,default=0.0)
 
+    def fetch_tweets():
+
+
     def __str__(self):
         return self.text

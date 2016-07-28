@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 from __future__ import absolute_import, unicode_literals
 
 import environ
+import os
 
 ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
 APPS_DIR = ROOT_DIR.path('SocialNetX')
@@ -245,5 +246,5 @@ ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login'
 # Your common stuff: Below this line define 3rd party library settings
 
 # Twitter app settings
-TW_CONSUMER_KEY = 'motMUlzcQGVbub8BIHPqflZNO'
-TW_CONSUMER_SECRET = 'BirKqr5rL00hlLef5RJMzleBPujNeBT5LHg081aBj9gOlSFpof'
+TW_CONSUMER_KEY = os.environ.get('TW_CONSUMER_KEY')
+TW_CONSUMER_SECRET = os.environ.get('TW_CONSUMER_SECRET')
