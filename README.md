@@ -9,11 +9,7 @@ If you like to contribute to the project you can set up development environment 
 
 Use git clone available to get a copy of the socialNetX project:
 ```
-<<<<<<< HEAD
 $ git clone https://github.com/atmishra/socialnetx.git
-=======
-$ git clone https://github.com/atmishra/socialNetX.git
->>>>>>> e027bf2666d14b70b0d8d1be30275e8c6c9670fc
 ```
 Create virtual environment for the project using virtualenvwrapper:
 ```
@@ -44,14 +40,13 @@ Now you are resdy to run development server:
 ```
 $ ./manage.py runserver
 ```
-=======
 Now you are ready to run development server:
 ```
 $ ./manage.py runserver
 ```
 You can now access **SocialNetX** through http://localhost:8000/
 
->>>>>>> e027bf2666d14b70b0d8d1be30275e8c6c9670fc
+
 ##Contributers
 - Atul Mishra
 - Parbhat Puri
