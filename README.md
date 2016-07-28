@@ -9,7 +9,7 @@ If you like to contribute to the project you can set up development environment 
 
 Use git clone available to get a copy of the socialNetX project:
 ```
-$ git clone https://github.com/atmishra/socialnetx.git
+$ git clone https://github.com/atmishra/socialNetX.git
 ```
 Create virtual environment for the project using virtualenvwrapper:
 ```
