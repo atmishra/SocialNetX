@@ -35,10 +35,12 @@ $ createdb socialnetx
 $ ./manage.py makemigrations
 $ ./manage.py migrate
 ```
-Now you are resdy to run development server:
+Now you are ready to run development server:
 ```
 $ ./manage.py runserver
 ```
+You can now access **SocialNetX** through http://localhost:8000/
+
 ##Contributers
 - Atul Mishra
 - Parbhat Puri
